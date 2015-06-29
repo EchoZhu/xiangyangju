@@ -2,7 +2,7 @@
 <resources>
 
     <string name="easily_get_ecmobile">各种商品应有尽有</string>
-    <string name="app_name">懒豆商城</string>
+    <string name="app_name">向阳居</string>
     <string name="excellent_parter">为您省去更多的时间方便您的生活</string>
     <string name="excellent_service">物流跟踪随时掌握</string>
     <string name="unify_response">为您省去更多的时间，方便您的生活</string>
@@ -21,7 +21,7 @@
     <string name="centimeters">centimeters</string>
     <string name="step_length_setting_title">Enter your step length</string>
     <string name="inches">inches</string>
-    <string name="no_need_to_change_code">懒豆商城满足您所有的需求</string>
+    <string name="no_need_to_change_code">向阳居满足您所有的需求</string>
     <string name="two_main_os">两大主流操作系统</string>
     <string name="special_app_for_cellphone">专属手机客户端，适用于目前世界上使用最为广泛的iOS和Android两大操作系统</string>
     <string name="xlistview_footer_hint_ready">松开载入更多</string>
@@ -396,11 +396,11 @@
     <string name="title_activity_e4__collect_tabs_fragment">E4_CollectTabsFragment</string>
     <string name="title_activity_e7__signup">E7_SignupActivity</string>
     <string name="title_activity_e10__company_info">E10_CompanyInfoActivity</string>
-    <string name="company_info">     \t\t\t\t懒豆商城——临沂人自己的网上超商，区域性电子商务网站，是临沂本土集网上销售、仓储、配送为一体的综合性购物网站。\n
-    \t\t\t\t2015年1月，“懒豆商城”进入试运营期，意在打造临沂电子商务行业“网上超市”的最优平台。懒豆商城主营生活日用快消品、家用、办公用品等，在采购、仓储、物流等方面坚持自营，为用户提供物美价廉的商品、优质的购买服务以及极速的配送服务。临沂本地消费者在购买生活日用品时，拥有了一种更便捷更时尚的选择。
-懒豆商城建有优秀的电子商务管理系统，并在系统平台、商品采购、仓储系统、物流配送和客户关系管理等方面大力投入，懒豆商城所有业务均坚持以用户为中心，全方位地服务于每一位用户。</string>
-    <string name="app_info">\t\t\t\t懒豆商城以低于大型超商的优惠价格，为消费者提供精挑细选的热门商品，专人负责比价，保证真实惠。商城所有直营商品均可享受预约配送或直送服务，公司自建同城物流配送系统——“小蜜蜂”，专向服务懒豆用户，最快两小时送达，意在打造最密集的临沂同城配送网。
-    \n\t\t\t\t懒豆商城坚持安全诚信的交易环境和服务平台，支持支付宝在线便捷付款或货到付款，针对各年龄段用户可无障碍购物。懒豆商城采购的商品，部分来自“世界五百强”的超商——麦德龙，部分来自大牌厂商的区域经销商。公司保证100%正品，出现假货，无条件假一罚十。</string>
+    <string name="company_info">     \t\t\t\t向阳居——临沂人自己的网上超商，区域性电子商务网站，是临沂本土集网上销售、仓储、配送为一体的综合性购物网站。\n
+    \t\t\t\t2015年1月，“向阳居”进入试运营期，意在打造临沂电子商务行业“网上超市”的最优平台。向阳居主营生活日用快消品、家用、办公用品等，在采购、仓储、物流等方面坚持自营，为用户提供物美价廉的商品、优质的购买服务以及极速的配送服务。临沂本地消费者在购买生活日用品时，拥有了一种更便捷更时尚的选择。
+向阳居建有优秀的电子商务管理系统，并在系统平台、商品采购、仓储系统、物流配送和客户关系管理等方面大力投入，向阳居所有业务均坚持以用户为中心，全方位地服务于每一位用户。</string>
+    <string name="app_info">\t\t\t\t向阳居以低于大型超商的优惠价格，为消费者提供精挑细选的热门商品，专人负责比价，保证真实惠。商城所有直营商品均可享受预约配送或直送服务，公司自建同城物流配送系统——“小蜜蜂”，专向服务懒豆用户，最快两小时送达，意在打造最密集的临沂同城配送网。
+    \n\t\t\t\t向阳居坚持安全诚信的交易环境和服务平台，支持支付宝在线便捷付款或货到付款，针对各年龄段用户可无障碍购物。向阳居采购的商品，部分来自“世界五百强”的超商——麦德龙，部分来自大牌厂商的区域经销商。公司保证100%正品，出现假货，无条件假一罚十。</string>
     <string name="company_address">客服：400 882 7090\n\n固话：0539-3126699\n\n地址：临沂市北城新区北京路与蒙河路交汇处北100米路西规划局三楼</string>
     <string name="title_activity_e11__app_info">E11_AppInfoActivity</string>
     <string name="title_activity_e12__company_map">E12_CompanyMapActivity</string>

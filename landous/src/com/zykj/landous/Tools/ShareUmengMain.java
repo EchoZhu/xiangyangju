@@ -35,9 +35,12 @@ public class ShareUmengMain {
 		// this.url = url;
 		this.activity = activity;
 		mController = UMServiceFactory.getUMSocialService("com.umeng.share");
-		String appID = "wxd4d00764f0763ae9";
+//		String appID = "wxd4d00764f0763ae9";
+		String appID = "wxd4d00764f0763ae9";//微信开放平台申请的appID
+//		UMQQSsoHandler qqSsoHandler = new UMQQSsoHandler(activity,
+//				"1104090547", "ev84Wp7qogHvZj8I");//QQ互联上申请的APPID
 		UMQQSsoHandler qqSsoHandler = new UMQQSsoHandler(activity,
-				"1104090547", "ev84Wp7qogHvZj8I");
+				"1104668839", "qH9gxPvxagizkzl6");//QQ互联上申请的APPID
 		qqSsoHandler.addToSocialSDK();
 		// 添加微信平台
 		UMWXHandler wxHandler = new UMWXHandler(activity, appID);
@@ -66,7 +69,7 @@ public class ShareUmengMain {
 		 circleMedia = new CircleShareContent();
 		
 		//设置朋友圈title
-		circleMedia.setTitle("懒豆商城");
+		circleMedia.setTitle("向阳居");
 		circleMedia.setShareImage(new UMImage(activity, R.drawable.ic_app));
 		circleMedia.setTargetUrl("http://www.landous.com");
 		mController.setShareMedia(circleMedia);

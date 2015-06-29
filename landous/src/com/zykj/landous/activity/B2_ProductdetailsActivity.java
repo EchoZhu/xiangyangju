@@ -160,7 +160,7 @@ public class B2_ProductdetailsActivity extends FragmentActivity implements
 		case R.id.ll_share:
 			ShareUmeng mShare = new ShareUmeng(B2_ProductdetailsActivity.this,
 					LandousAppConst.url + goods_id);
-			mShare.setContent("我在懒豆商城看见这件商品不错，你也来看看吧");
+			mShare.setContent("我在向阳居看见这件商品不错，你也来看看吧");
 			mShare.show();
 			break;
 		case R.id.btn_spcar:

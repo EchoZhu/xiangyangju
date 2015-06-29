@@ -315,9 +315,9 @@ public class Fiap {
 		// sb.append(get_order_id());
 		sb.append(order_no);
 		sb.append("\"&subject=\"");
-		sb.append("懒豆商城商品支付");
+		sb.append("向阳居商品支付");
 		sb.append("\"&body=\"");
-		sb.append("懒豆商城商品支付");
+		sb.append("向阳居商品支付");
 		sb.append("\"&total_fee=\"" + position);
 		// sb.append("0.01");
 		sb.append("\"&notify_url=\"");

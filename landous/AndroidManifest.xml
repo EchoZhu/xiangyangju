@@ -249,9 +249,12 @@
             android:screenOrientation="portrait" >
         </activity>
 
+        <!-- <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="54a75b37fd98c540cd001139" /> -->
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="54a75b37fd98c540cd001139" />
+            android:value="558d4e2267e58e4b61002cc6" />
 
         <activity
             android:name="com.umeng.socialize.view.ShareActivity"

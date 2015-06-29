@@ -337,7 +337,7 @@ public class A0_HomeFragment extends Fragment implements OnClickListener,
 			// Share mShare = new Share(getActivity());
 			// mShare.show("landous.com");
 			ShareUmengMain mShare = new ShareUmengMain(getActivity());
-			mShare.setContent("我在懒豆商城看见件商品不错，你也来看看吧");
+			mShare.setContent("我在向阳居看见件商品不错，你也来看看吧");
 			mShare.show();
 			break;
 		case R.id.search_input:

@@ -55,10 +55,13 @@ public class E6_SigninActivity extends Activity implements OnClickListener,
 	private SharedPreferences shared;
 	private SharedPreferences.Editor editor;
 
-	private static String APPKEY = "502ddf1221e6";
-
+//	private static String APPKEY = "502ddf1221e6";
+//	// 填写从短信SDK应用后台注册得到的APPSECRET
+//	private static String APPSECRET = "67f53cb9f6701daa5385550be8bfc15f";
+	private static String APPKEY = "86261b76ccb9";
 	// 填写从短信SDK应用后台注册得到的APPSECRET
-	private static String APPSECRET = "67f53cb9f6701daa5385550be8bfc15f";
+	private static String APPSECRET = "c7d96e0026385cfe43832103de8ab96f";
+
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

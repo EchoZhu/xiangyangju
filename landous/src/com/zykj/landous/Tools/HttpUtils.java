@@ -18,7 +18,8 @@ import com.loopj.android.http.RequestParams;
 public class HttpUtils {
 
 	public static final String base_url1 = "http://112.53.78.18:8088/appif/api.php?m=user&a=";
-	public static final String base_url = "http://api.landous.com/api.php?m=user&a=";
+//	public static final String base_url = "http://api.landous.com/api.php?m=user&a=";
+	public static final String base_url = "http://192.168.1.145:80/appif/api.php?m=user&a=";
 //	public static final String base_url1 = "http://www.itcan.cn:9000/appif/api.php?m=user&a=";
 //	public static final String base_url = "http://www.itcan.cn:9000/appif/api.php?m=user&a=";
 	private static AsyncHttpClient client = new AsyncHttpClient(); // 实例话对象

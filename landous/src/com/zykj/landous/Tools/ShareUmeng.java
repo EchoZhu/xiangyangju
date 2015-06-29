@@ -58,7 +58,7 @@ public class ShareUmeng {
 		circleMedia = new CircleShareContent();
 
 		// 设置朋友圈title
-		circleMedia.setTitle("懒豆商城");
+		circleMedia.setTitle("向阳居");
 		circleMedia.setShareImage(new UMImage(activity, R.drawable.ic_app));
 		sinaContent
 				.setShareImage(new UMImage(activity,

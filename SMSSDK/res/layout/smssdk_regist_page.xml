@@ -114,7 +114,7 @@
 	    android:layout_gravity="left"
 	    android:layout_marginLeft="16dp"
 	    android:layout_marginTop="20dp"
-	    android:text="注册表示已经同意《懒豆商城用户服务协议》"
+	    android:text="注册表示已经同意《向阳居用户服务协议》"
 	    android:textSize="10dp"
 	    android:textColor="#9acd32"
 	    android:layout_height="wrap_content"
