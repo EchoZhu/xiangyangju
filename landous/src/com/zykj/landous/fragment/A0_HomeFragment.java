@@ -424,7 +424,7 @@ public class A0_HomeFragment extends Fragment implements OnClickListener,
 		public void onSuccess(int statusCode, Header[] headers,
 				JSONObject response) {
 			super.onSuccess(statusCode, headers, response);
-//			Log.e("res_getHomeGoods_response=", response+"");
+			Log.e("首页=", response+"");
 			int result = 0;
 
 			try {
@@ -453,7 +453,7 @@ public class A0_HomeFragment extends Fragment implements OnClickListener,
 								map.put("goods",jsonItem.getString("goods"));
 								imgs[j].setTag(jsonItem.getString("gc_id"));
 								map.put("gc_id", jsonItem.getString("gc_id"));
-								Log.e("jsonItem_"+j, jsonItem+"");
+//								Log.e("jsonItem_"+j, jsonItem+"");
 								goods_data.add(map);
 							}
 						}
