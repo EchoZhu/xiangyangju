@@ -180,7 +180,7 @@ public class E3_Activity_Returns extends BaseActivity implements
 				AlertDialog.Builder builder = new Builder(
 						E3_Activity_Returns.this);
 //				builder.setMessage("退款提交成功");
-				builder.setMessage("您的退款申请已提交，懒豆将在1个工作日内进行审核");
+				builder.setMessage("您的退款申请已提交，我们将在1个工作日内进行审核");
 
 				builder.setTitle("提示");
 

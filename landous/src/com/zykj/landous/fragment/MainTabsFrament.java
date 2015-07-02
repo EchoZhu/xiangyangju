@@ -22,6 +22,7 @@ public class MainTabsFrament extends Fragment {
 	ImageView tab_three;
 	ImageView tab_four;
 	ImageView tab_five;
+	ImageView tab_six;
 
 	private static TextView shopping_cart_num;
 	private static LinearLayout shopping_cart_num_bg;
@@ -29,8 +30,11 @@ public class MainTabsFrament extends Fragment {
 	A0_HomeFragment homeFragment;
 	B0_Classify classifyFragment;
 	C0_ShopsFragment shopsFragment;
-	D0_ShopingCartFragment shoppingCartFragment;
+//	D0_ShopingCartFragment shoppingCartFragment;
+	G0_TiYanGuanFragment tiyanguanFragment;
 	E0_ProfileFragment profileFragment;
+	F0_ActivityFragment activityFragment;
+	
 
 	public static String type = "";
 
@@ -78,8 +82,7 @@ public class MainTabsFrament extends Fragment {
 			}
 		});
 
-		this.tab_three = (ImageView) mainView
-				.findViewById(R.id.toolbar_tabthree);
+		this.tab_three = (ImageView) mainView.findViewById(R.id.toolbar_tabthree);
 		this.tab_three.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -101,6 +104,15 @@ public class MainTabsFrament extends Fragment {
 				OnTabSelected("tab_five");
 			}
 		});
+		this.tab_six = (ImageView) mainView.findViewById(R.id.toolbar_tabsix);
+		this.tab_six.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				OnTabSelected("tab_six");
+			}
+		});
+		
+		
 		if (type == "") {
 			OnTabSelected("tab_one");
 		} else {
@@ -112,7 +124,7 @@ public class MainTabsFrament extends Fragment {
 	void OnTabSelected(String tabName) {
 		if (tabName == "tab_one") {
 			if (null == homeFragment) {
-				homeFragment = new A0_HomeFragment();
+				homeFragment = new A0_HomeFragment();//首页
 			}
 
 			FragmentTransaction localFragmentTransaction = getFragmentManager()
@@ -124,15 +136,14 @@ public class MainTabsFrament extends Fragment {
 			this.tab_one.setImageResource(R.drawable.footer_home_active_icon);
 			this.tab_two.setImageResource(R.drawable.footer_sort_icon);
 			this.tab_three.setImageResource(R.drawable.footer_shop_icon);
-			this.tab_four
-					.setImageResource(R.drawable.footer_shopping_cart_icon);
+			this.tab_four.setImageResource(R.drawable.footer_tiyanguan_icon);
 			this.tab_five.setImageResource(R.drawable.footer_user_icon);
-
+			this.tab_six.setImageResource(R.drawable.footer_activity_icon);
 		} else if (tabName == "tab_two") {
 			// Intent it = new Intent(getActivity(), ClassifyActivity.class);
 			// startActivity(it);
 			if (classifyFragment == null) {
-				classifyFragment = new B0_Classify();
+				classifyFragment = new B0_Classify();//分类
 			}
 
 			FragmentTransaction localFragmentTransaction = getFragmentManager()
@@ -145,11 +156,11 @@ public class MainTabsFrament extends Fragment {
 			this.tab_two.setImageResource(R.drawable.footer_sort_activity_icon);
 			this.tab_three.setImageResource(R.drawable.footer_shop_icon);
 			this.tab_four
-					.setImageResource(R.drawable.footer_shopping_cart_icon);
+					.setImageResource(R.drawable.footer_tiyanguan_icon);
 			this.tab_five.setImageResource(R.drawable.footer_user_icon);
-
+			this.tab_six.setImageResource(R.drawable.footer_activity_icon);
 		} else if (tabName == "tab_three") {
-			shopsFragment = new C0_ShopsFragment();
+			shopsFragment = new C0_ShopsFragment();//购物车
 			FragmentTransaction localFragmentTransaction = getFragmentManager()
 					.beginTransaction();
 			localFragmentTransaction.replace(R.id.fragment_container,
@@ -162,26 +173,27 @@ public class MainTabsFrament extends Fragment {
 			this.tab_four
 					.setImageResource(R.drawable.footer_shopping_cart_icon);
 			this.tab_five.setImageResource(R.drawable.footer_user_icon);
+			this.tab_six.setImageResource(R.drawable.footer_activity_icon);
 		} else if (tabName == "tab_four") {
-			if (shoppingCartFragment == null) {
-				shoppingCartFragment = new D0_ShopingCartFragment();
+			if (tiyanguanFragment == null) {
+				tiyanguanFragment = new G0_TiYanGuanFragment();//体验馆
 			}
 			FragmentTransaction localFragmentTransaction = getFragmentManager()
 					.beginTransaction();
 			localFragmentTransaction.replace(R.id.fragment_container,
-					shoppingCartFragment, "tab_four");
+					tiyanguanFragment, "tab_four");
 			localFragmentTransaction.commit();
 
 			this.tab_one.setImageResource(R.drawable.footer_home_icon);
 			this.tab_two.setImageResource(R.drawable.footer_sort_icon);
 			this.tab_three.setImageResource(R.drawable.footer_shop_icon);
 			this.tab_four
-					.setImageResource(R.drawable.footer_shopping_cart_active_icon);
+					.setImageResource(R.drawable.footer_tiyanguan_active_icon);
 			this.tab_five.setImageResource(R.drawable.footer_user_icon);
-
+			this.tab_six.setImageResource(R.drawable.footer_activity_icon);
 		} else if (tabName == "tab_five") {
 			if (profileFragment == null) {
-				profileFragment = new E0_ProfileFragment();
+				profileFragment = new E0_ProfileFragment();//个人中心
 			}
 			FragmentTransaction localFragmentTransaction = getFragmentManager()
 					.beginTransaction();
@@ -193,10 +205,29 @@ public class MainTabsFrament extends Fragment {
 			this.tab_two.setImageResource(R.drawable.footer_sort_icon);
 			this.tab_three.setImageResource(R.drawable.footer_shop_icon);
 			this.tab_four
-					.setImageResource(R.drawable.footer_shopping_cart_icon);
+					.setImageResource(R.drawable.footer_tiyanguan_icon);
 			this.tab_five
 					.setImageResource(R.drawable.footer_user_activity_icon);
+			this.tab_six.setImageResource(R.drawable.footer_activity_icon);
+		}else if (tabName == "tab_six") {
+		if (activityFragment == null) {
+			activityFragment = new F0_ActivityFragment();//活动
 		}
+		FragmentTransaction localFragmentTransaction = getFragmentManager()
+				.beginTransaction();
+		localFragmentTransaction.replace(R.id.fragment_container,
+				activityFragment, "tab_six");
+		localFragmentTransaction.commit();
+		
+		this.tab_one.setImageResource(R.drawable.footer_home_icon);
+		this.tab_two.setImageResource(R.drawable.footer_sort_icon);
+		this.tab_three.setImageResource(R.drawable.footer_shop_icon);
+		this.tab_four
+		.setImageResource(R.drawable.footer_tiyanguan_icon);
+		this.tab_five
+		.setImageResource(R.drawable.footer_user_icon);
+		this.tab_six.setImageResource(R.drawable.footer_activity_active_icon);
+	}
 	}
 
 	@Override

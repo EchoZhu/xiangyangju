@@ -158,8 +158,7 @@ public class A0_HomeFragment extends Fragment implements OnClickListener,
 			Bundle savedInstanceState) {
 		view = inflater.inflate(R.layout.a0_homefragment, null);
 		listview = (MyListView) view.findViewById(R.id.listview);
-		headView = LayoutInflater.from(getActivity()).inflate(
-				R.layout.a0_homehead, null);
+		headView = LayoutInflater.from(getActivity()).inflate(R.layout.a0_homehead, null);//八个图标加活动专区
 		listview.setPullLoadEnable(false);
 		listview.setPullRefreshEnable(true);
 		listview.setXListViewListener(this, 0);

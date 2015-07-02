@@ -67,47 +67,54 @@ public class WelcomeActivity extends BaseActivity implements OnGestureListener,
 			startActivity(it);
 			finish();
 		}
+		//去掉了三张欢迎动画
+		else {
+			Intent it = new Intent(this, MainActivity.class);
+			startActivity(it);
+			finish();
+			
+		}
 
-		initLayout();
-		backgroundLayout = (FrameLayout) findViewById(R.id.backgroundLayout);
-		background_srcollview = (HorizontalScrollView) findViewById(R.id.background_srcollview);
-		background_srcollview.setHorizontalScrollBarEnabled(false);
-
-		layer_srcollview = (HorizontalScrollView) findViewById(R.id.layer_srcollview);
-		layer_srcollview.setHorizontalScrollBarEnabled(false);
-
-		imagePager = (ViewPager) findViewById(R.id.image_pager);
-
-		galleryImageAdapter = new GalleryImageAdapter(this);
-		imagePager.setAdapter(galleryImageAdapter);
-		imagePager.setOnPageChangeListener(new OnPageChangeListener() {
-
-			@Override
-			public void onPageSelected(int position) {
-				pager_num = position + 1;
-			}
-
-			@Override
-			public void onPageScrolled(int position, float positionOffset,
-					int positionOffsetPixels) {
-				float realOffset = Cubic.easeIn(positionOffset, 0, 1, 1);
-
-				total_page = galleryImageAdapter.getCount();
-				float offset = (float) ((float) (position + realOffset) * 1.0 / total_page);
-				int offsetPositon = (int) (backgoundWidth * offset);
-
-				float layerRealOffset = Sine.easeIn(positionOffset, 0, 1, 1);
-				float layerOffset = (float) ((float) (position + layerRealOffset) * 1.0 / total_page);
-				int layerOffsetPositon = (int) (backgoundWidth * layerOffset);
-				layer_srcollview.scrollTo(layerOffsetPositon, 0);
-			}
-
-			@Override
-			public void onPageScrollStateChanged(int state) {
-			}
-		});
-
-		imagePager.setOnTouchListener(this);
+//		initLayout();
+//		backgroundLayout = (FrameLayout) findViewById(R.id.backgroundLayout);
+//		background_srcollview = (HorizontalScrollView) findViewById(R.id.background_srcollview);
+//		background_srcollview.setHorizontalScrollBarEnabled(false);
+//
+//		layer_srcollview = (HorizontalScrollView) findViewById(R.id.layer_srcollview);
+//		layer_srcollview.setHorizontalScrollBarEnabled(false);
+//
+//		imagePager = (ViewPager) findViewById(R.id.image_pager);
+//
+//		galleryImageAdapter = new GalleryImageAdapter(this);
+//		imagePager.setAdapter(galleryImageAdapter);
+//		imagePager.setOnPageChangeListener(new OnPageChangeListener() {
+//
+//			@Override
+//			public void onPageSelected(int position) {
+//				pager_num = position + 1;
+//			}
+//
+//			@Override
+//			public void onPageScrolled(int position, float positionOffset,
+//					int positionOffsetPixels) {
+//				float realOffset = Cubic.easeIn(positionOffset, 0, 1, 1);
+//
+//				total_page = galleryImageAdapter.getCount();
+//				float offset = (float) ((float) (position + realOffset) * 1.0 / total_page);
+//				int offsetPositon = (int) (backgoundWidth * offset);
+//
+//				float layerRealOffset = Sine.easeIn(positionOffset, 0, 1, 1);
+//				float layerOffset = (float) ((float) (position + layerRealOffset) * 1.0 / total_page);
+//				int layerOffsetPositon = (int) (backgoundWidth * layerOffset);
+//				layer_srcollview.scrollTo(layerOffsetPositon, 0);
+//			}
+//
+//			@Override
+//			public void onPageScrollStateChanged(int state) {
+//			}
+//		});
+//
+//		imagePager.setOnTouchListener(this);
 
 	}
 

@@ -312,6 +312,8 @@
     <string name="unique">唯一</string>
     <string name="ecmobile">河津手机商城</string>
     <string name="new_activity">最新活动</string>
+    <string name="activity">活动</string>
+    <string name="tiyanguan">体验馆</string>
     <string name="save">保存</string>
     <string name="avail_exp">您的可用积分为</string>
     <string name="warn_wrong_exp">请输入有效积分</string>
@@ -396,12 +398,12 @@
     <string name="title_activity_e4__collect_tabs_fragment">E4_CollectTabsFragment</string>
     <string name="title_activity_e7__signup">E7_SignupActivity</string>
     <string name="title_activity_e10__company_info">E10_CompanyInfoActivity</string>
-    <string name="company_info">     \t\t\t\t向阳居——临沂人自己的网上超商，区域性电子商务网站，是临沂本土集网上销售、仓储、配送为一体的综合性购物网站。\n
-    \t\t\t\t2015年1月，“向阳居”进入试运营期，意在打造临沂电子商务行业“网上超市”的最优平台。向阳居主营生活日用快消品、家用、办公用品等，在采购、仓储、物流等方面坚持自营，为用户提供物美价廉的商品、优质的购买服务以及极速的配送服务。临沂本地消费者在购买生活日用品时，拥有了一种更便捷更时尚的选择。
+    <string name="company_info">     \t\t\t\t向阳居——XX人自己的网上超商，区域性电子商务网站，是XX本土集网上销售、仓储、配送为一体的综合性购物网站。\n
+    \t\t\t\t2015年1月，“向阳居”进入试运营期，意在打造XX电子商务行业“网上超市”的最优平台。向阳居主营生活日用快消品、家用、办公用品等，在采购、仓储、物流等方面坚持自营，为用户提供物美价廉的商品、优质的购买服务以及极速的配送服务。XX本地消费者在购买生活日用品时，拥有了一种更便捷更时尚的选择。
 向阳居建有优秀的电子商务管理系统，并在系统平台、商品采购、仓储系统、物流配送和客户关系管理等方面大力投入，向阳居所有业务均坚持以用户为中心，全方位地服务于每一位用户。</string>
-    <string name="app_info">\t\t\t\t向阳居以低于大型超商的优惠价格，为消费者提供精挑细选的热门商品，专人负责比价，保证真实惠。商城所有直营商品均可享受预约配送或直送服务，公司自建同城物流配送系统——“小蜜蜂”，专向服务懒豆用户，最快两小时送达，意在打造最密集的临沂同城配送网。
+    <string name="app_info">\t\t\t\t向阳居以低于大型超商的优惠价格，为消费者提供精挑细选的热门商品，专人负责比价，保证真实惠。商城所有直营商品均可享受预约配送或直送服务，公司自建同城物流配送系统——“小蜜蜂”，专向服务用户，最快两小时送达，意在打造最密集的XX同城配送网。
     \n\t\t\t\t向阳居坚持安全诚信的交易环境和服务平台，支持支付宝在线便捷付款或货到付款，针对各年龄段用户可无障碍购物。向阳居采购的商品，部分来自“世界五百强”的超商——麦德龙，部分来自大牌厂商的区域经销商。公司保证100%正品，出现假货，无条件假一罚十。</string>
-    <string name="company_address">客服：400 882 7090\n\n固话：0539-3126699\n\n地址：临沂市北城新区北京路与蒙河路交汇处北100米路西规划局三楼</string>
+    <string name="company_address">客服：400 121 1212\n\n固话：1231-123123123\n\n地址：123123123123</string>
     <string name="title_activity_e11__app_info">E11_AppInfoActivity</string>
     <string name="title_activity_e12__company_map">E12_CompanyMapActivity</string>
     <string name="title_activity_a1__special">A1_SpecialActivity</string>
@@ -579,4 +581,6 @@
 	<string name="bc_pay" formatted="false">微信支付</string>
 	<string name="bc_pay_wx_title">微信支付</string>
 	<string name="bc_pay_goto_wx">打开微信支付</string>
+	
+	
 </resources>

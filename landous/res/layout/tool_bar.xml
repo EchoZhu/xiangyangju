@@ -22,7 +22,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/footer_active_bg"
                 android:visibility="invisible" />
-
+			<!-- 首页 -->
             <ImageView
                 android:id="@+id/toolbar_tabone"
                 android:layout_width="match_parent"
@@ -44,7 +44,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/footer_active_bg"
                 android:visibility="invisible" />
-
+			<!-- 分类 -->
             <ImageView
                 android:id="@+id/toolbar_tabtwo"
                 android:layout_width="match_parent"
@@ -53,6 +53,27 @@
                 android:background="#00000000"
                 android:padding="7dp"
                 android:src="@drawable/footer_sort_icon" />
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25" >
+
+            <ImageView
+                android:id="@+id/toolbar_tabtwobg"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/footer_active_bg"
+                android:visibility="invisible" />
+			<!-- 活动 -->
+            <ImageView
+                android:id="@+id/toolbar_tabsix"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="#00000000"
+                android:padding="7dp"
+                android:src="@drawable/footer_activity_icon" />
         </FrameLayout>
 
         <FrameLayout
@@ -67,7 +88,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/footer_active_bg"
                 android:visibility="invisible" />
-
+			<!-- 我的 -->
             <ImageView
                 android:id="@+id/toolbar_tabthree"
                 android:layout_width="match_parent"
@@ -89,7 +110,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/footer_active_bg"
                 android:visibility="invisible" />
-
+			<!-- 购物车 -->
             <ImageView
                 android:id="@+id/toolbar_tabfour"
                 android:layout_width="match_parent"
@@ -97,7 +118,7 @@
                 android:layout_gravity="center"
                 android:background="#00000000"
                 android:padding="7dp"
-                android:src="@drawable/footer_shopping_cart_icon" />
+                android:src="@drawable/footer_tiyanguan_icon" />
 
             <LinearLayout
                 android:id="@+id/shopping_cart_num_bg"
