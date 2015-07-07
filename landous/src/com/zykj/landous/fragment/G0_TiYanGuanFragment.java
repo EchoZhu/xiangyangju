@@ -1,18 +1,33 @@
 package com.zykj.landous.fragment;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 import com.external.maxwin.view.XListView.IXListViewListener;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.zykj.landous.LandousAppConst;
+import com.zykj.landous.Tools.HttpUtils;
+import com.zykj.landous.activity.G0_Tiyanguan;
 import com.zykj.landous.adapter.G0_TiYanGuanListAdapter;
 import com.zykj.landous.view.MyListView;
 import com.zykj.xiangyangju.R;
@@ -30,6 +45,7 @@ public class G0_TiYanGuanFragment extends Fragment implements OnClickListener, I
 	ArrayList<Map<String, String>> data = new ArrayList<Map<String, String>>();
 	G0_TiYanGuanListAdapter adapter;
     Context mContext;
+	private ProgressDialog loadingPDialog = null;
 	// 轮播图
 //	private SlideShowView slideshowView_f0;
 	@Override
@@ -49,6 +65,17 @@ public class G0_TiYanGuanFragment extends Fragment implements OnClickListener, I
 		listView.setPullRefreshEnable(true);
 		listView.setXListViewListener(this, 0);
 		listView.setAdapter(adapter);
+//	    listView.setOnItemClickListener(new OnItemClickListener(){  
+//			@Override
+//			public void onItemClick(AdapterView<?> arg0, View arg1, int position,long id) {
+//				// TODO Auto-generated method stub
+////				Toast.makeText(mContext, "跳转到"+position, 500).show();
+//				Intent intent = new Intent(mContext,G0_Tiyanguan.class);
+//				//传一些参数过去
+//				
+//				startActivity(intent);
+//			 }  
+//       });  
 //		slideshowView_f0 = (SlideShowView) view.findViewById(R.id.slideshowView_f0);
 //		LayoutParams lp = slideshowView_f0.getLayoutParams();
 //		DisplayMetrics metric = new DisplayMetrics();
@@ -56,7 +83,12 @@ public class G0_TiYanGuanFragment extends Fragment implements OnClickListener, I
 //		int width = metric.widthPixels; // 屏幕宽度（像素）
 //		lp.height = width/5*2;
 //		slideshowView_f0.setLayoutParams(lp);
-//        HttpUtils.//访问活动接口
+//      HttpUtils.//访问活动接口
+	    loadingPDialog = new ProgressDialog(getActivity());
+		loadingPDialog.setMessage("正在加载....");
+		loadingPDialog.setCancelable(false);
+		loadingPDialog.show();
+        HttpUtils.getExpList(res_getExpList);
 		return view;
 	}
 
@@ -79,80 +111,46 @@ public class G0_TiYanGuanFragment extends Fragment implements OnClickListener, I
 	}
 
 
-//	JsonHttpResponseHandler res = new JsonHttpResponseHandler() {
-//
-//		@Override
-//		public void onSuccess(int statusCode, Header[] headers,
-//				JSONObject response) {
-//			super.onSuccess(statusCode, headers, response);
-//
-//			int result = 0;
-//
-//			try {
-//				result = Integer.valueOf(response.getString("result"));
-//
-//			} catch (NumberFormatException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			} catch (JSONException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//			if (result == 1 && statusCode == 200) {
-//
-//				loadingPDialog.dismiss();
-//
-//				AlertDialog.Builder builder = new Builder(getActivity());
-//				builder.setTitle("签到成功");
-//
-//				builder.setNegativeButton("确认",
-//						new DialogInterface.OnClickListener() {
-//
-//							public void onClick(DialogInterface dialog,
-//									int which) {
-//								profile_check
-//										.setImageResource(R.drawable.profile_checked);
-//								HttpUtils.refreshUserInfo(res_refresh);
-//							}
-//
-//						});
-//				builder.create().show();
-//
-//			} else {
-//				loadingPDialog.dismiss();
-//				String message = "";
-//				try {
-//					message = response.getString("message");
-//				} catch (JSONException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//				AlertDialog.Builder builder = new Builder(getActivity());
-//				builder.setTitle(message);
-//
-//				builder.setNegativeButton("确认",
-//						new DialogInterface.OnClickListener() {
-//
-//							public void onClick(DialogInterface dialog,
-//									int which) {
-//
-//							}
-//
-//						});
-//				builder.create().show();
-//				Log.i("check_fail", response.toString());
-//
-//			}
-//		}
-//
-//		@Override
-//		public void onFailure(int statusCode, Header[] headers,
-//				Throwable throwable, JSONObject errorResponse) {
-//			// TODO Auto-generated method stub
-//			Toast.makeText(getActivity(), "网络连接超时", Toast.LENGTH_LONG).show();
-//			super.onFailure(statusCode, headers, throwable, errorResponse);
-//			loadingPDialog.dismiss();
-//		}
-//	};
+	JsonHttpResponseHandler res_getExpList = new JsonHttpResponseHandler() {
+		public void onSuccess(int statusCode, org.apache.http.Header[] headers, JSONObject response) {
+			super.onSuccess(statusCode, headers, response);
+			Log.e("体验馆", response+"");
+			int result = 0;
+			try {
+				result = Integer.valueOf(response.getString("result"));
+			} catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if (result == 1 && statusCode == 200) {
+				try {
+					data.clear();
+					JSONArray array = response.getJSONArray("list");
+					for (int i = 0; i < array.length(); i++) {
+						JSONObject jsonItem = array.getJSONObject(i);
+						Map<String, String> map = new HashMap();
+						map.put("expr_longi", jsonItem.getString("expr_longi"));
+						map.put("expr_lati", jsonItem.getString("expr_lati"));
+						map.put("expr_location", jsonItem.getString("expr_location"));
+						map.put("expr_abstract", jsonItem.getString("expr_abstract"));
+						map.put("expr_name", jsonItem.getString("expr_name"));
+						map.put("expr_tel", jsonItem.getString("expr_tel"));
+						map.put("expr_img", LandousAppConst.act_img_head+jsonItem.getString("expr_img"));
+						data.add(map);
+					}
+					adapter.notifyDataSetChanged();
+
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			loadingPDialog.dismiss();
+		};
+		
+	};
 
 }

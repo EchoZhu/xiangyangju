@@ -526,7 +526,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Copyright © 2014 landous.com 版权所有"
+                android:text="Copyright © 2015 xxxxxxx.com 版权所有"
                 android:textColor="#c0c0c0"
                 android:textSize="12dp" />
         </LinearLayout>

@@ -145,7 +145,6 @@ public class MainTabsFrament extends Fragment {
 			if (classifyFragment == null) {
 				classifyFragment = new B0_Classify();//分类
 			}
-
 			FragmentTransaction localFragmentTransaction = getFragmentManager()
 					.beginTransaction();
 			localFragmentTransaction.replace(R.id.fragment_container,

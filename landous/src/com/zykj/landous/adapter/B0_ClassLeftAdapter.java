@@ -59,7 +59,6 @@ public class B0_ClassLeftAdapter extends BaseAdapter {
 		} else {
 			view.setBackgroundColor(Color.WHITE);
 		}
-		
 			view.setHeight((dm.heightPixels - 120) / (getCount() + 1));
 			view.setText(data.get(arg0).get("gc_name"));
 			view.setTextColor(Color.BLACK);

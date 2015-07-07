@@ -19,7 +19,8 @@ public class HttpUtils {
 
 	public static final String base_url1 = "http://112.53.78.18:8088/appif/api.php?m=user&a=";
 //	public static final String base_url = "http://api.landous.com/api.php?m=user&a=";//懒豆的服务器地址
-	public static final String base_url = "http://192.168.1.145:80/appif/api.php?m=user&a=";//伟哥内网服务器地址
+//	public static final String base_url = "http://192.168.1.145:80/appif/api.php?m=user&a=";//伟哥内网服务器地址
+	public static final String base_url = "http://app.xiangyangju.com/appif/api.php?m=user&a=";//伟哥外网服务器地址
 	private static AsyncHttpClient client = new AsyncHttpClient(); // 实例话对象
 
 	static {
@@ -97,6 +98,18 @@ public class HttpUtils {
 	{
 
 		String url = base_url + "getHomeGoods";
+		client.get(url, res);
+		Log.i("landousurl", url);
+	}
+	/**
+	 * 首页活动专区
+	 * 
+	 * @param res
+	 */
+	public static void getHomeAct(AsyncHttpResponseHandler res) // 用一个完整url获取一个string对象
+	{
+		
+		String url = base_url + "getNewestAct";
 		client.get(url, res);
 		Log.i("landousurl", url);
 	}
@@ -538,6 +551,27 @@ public class HttpUtils {
 	 */
 	public static void getExpress(AsyncHttpResponseHandler res, String order_id) {
 		String url = base_url + "getExpress&order_id=" + order_id;
+		client.get(url, res);
+	}
+	
+	/**
+	 * 活动列表
+	 * 
+	 * @param res
+	 * @param order_id
+	 */
+	public static void getActList(AsyncHttpResponseHandler res) {
+		String url = base_url+"getallActList";
+		client.get(url, res);
+	}
+	/**
+	 * 体验馆列表
+	 * 
+	 * @param res
+	 * @param order_id
+	 */
+	public static void getExpList(AsyncHttpResponseHandler res) {
+		String url = base_url+"getexprList_ofoneuser";
 		client.get(url, res);
 	}
 

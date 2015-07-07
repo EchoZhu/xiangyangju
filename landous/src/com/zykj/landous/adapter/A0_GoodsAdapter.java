@@ -142,7 +142,7 @@ public class A0_GoodsAdapter extends BaseAdapter {
 								+ "/"
 								+ array.getJSONObject(j).getString(
 										"goods_image");
-						Log.i("landous", url);
+						Log.e("landous++", url);
 						img = (ImageView) view.findViewById(img_goods[j]);
 						ImageLoader.getInstance().displayImage(url, img,
 								BeeFrameworkApp.options_square);

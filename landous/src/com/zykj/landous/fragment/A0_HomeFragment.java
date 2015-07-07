@@ -29,6 +29,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.BeeFramework.model.BeeCallback;
@@ -38,12 +39,15 @@ import com.external.androidquery.callback.AjaxStatus;
 import com.external.androidquery.util.Constants;
 import com.external.maxwin.view.XListView.IXListViewListener;
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.zykj.landous.LandousAppConst;
 import com.zykj.landous.Data.BaseData;
 import com.zykj.landous.Tools.HttpUtils;
 import com.zykj.landous.Tools.ShareUmengMain;
 import com.zykj.landous.Tools.Image.MyGallery;
 import com.zykj.landous.activity.A2_SearchActivity;
 import com.zykj.landous.activity.B1_GoodsListActivity;
+import com.zykj.landous.activity.F0_huodong;
 import com.zykj.landous.adapter.A0_GoodsAdapter;
 import com.zykj.landous.adapter.ImgAdapter;
 import com.zykj.landous.model.HomeModel;
@@ -73,8 +77,9 @@ public class A0_HomeFragment extends Fragment implements OnClickListener,
 	private View headView;
 	List<Map<String, String>> data = new ArrayList<Map<String, String>>();
 	List<Map<String, String>> goods_data = new ArrayList<Map<String, String>>();
-	String goods_id[] = new String[]{"3025","3028","3029","3031","3032","3035","3036","3037"};//通过gc_id来筛选需要显示在首页的物品
-	ImgAdapter adapter;
+//	String goods_id[] = new String[]{"3025","3028","3029","3031","3032","3035","3036","3037"};//通过gc_id来筛选需要显示在首页的物品
+	String goods_id[] = new String[]{"1","2","3","256","470","530","593","617"};//通过gc_id来筛选需要显示在首页的物品
+	ImgAdapter adapter;  
 	/**
 	 * 生鲜饮品1
 	 */
@@ -107,6 +112,17 @@ public class A0_HomeFragment extends Fragment implements OnClickListener,
 	 * 家具文体
 	 */
 	private ImageView iv_jiajuwenti;
+	/**
+	 * 活动专区
+	 */
+	private ImageView iv_act;
+	/**
+	 * 活动专区 标题 + 内容
+	 */
+	private TextView tv_activitytitile;
+	private TextView tv_activitycontent;
+	
+	private LinearLayout ll_activity;
 //	/**
 //	 * 休闲食品
 //	 */
@@ -152,6 +168,7 @@ public class A0_HomeFragment extends Fragment implements OnClickListener,
 	Intent it;
 	private RelativeLayout rl_main;
 	Thread mThread;
+	String date,title,content;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -206,6 +223,13 @@ public class A0_HomeFragment extends Fragment implements OnClickListener,
 //		iv_officegifts.setOnClickListener(this);
 		iv_jiajuwenti = (ImageView) headView.findViewById(R.id.iv_jiajuwenti);
 		iv_jiajuwenti.setOnClickListener(this);
+		iv_act = (ImageView) headView.findViewById(R.id.iv_act);
+		tv_activitytitile = (TextView) headView.findViewById(R.id.tv_activitytitile);
+		tv_activitycontent = (TextView) headView.findViewById(R.id.tv_activitycontent);
+		
+		ll_activity = (LinearLayout) headView.findViewById(R.id.ll_activity);
+		ll_activity.setOnClickListener(this);
+		
 //		imgs = new ImageView[] { iv_leisurefood, iv_personalcare, iv_beverages,
 //				iv_condiment, iv_homecleaners, iv_supplies, iv_appliance,
 //				iv_officegifts };
@@ -235,6 +259,7 @@ public class A0_HomeFragment extends Fragment implements OnClickListener,
 		loadingPDialog = new ProgressDialog(getActivity());
 		loadingPDialog.setMessage("正在加载....");
 		loadingPDialog.setCancelable(false);
+		HttpUtils.getHomeAct(res_getHomeAct);
 		mThread = new Thread(new Runnable() {
 
 			@Override
@@ -271,65 +296,51 @@ public class A0_HomeFragment extends Fragment implements OnClickListener,
 	public void onClick(View v) {
 		switch (v.getId()) {
 //		String goods_id[] = new String[]{"3025","3028","3029","3031","3032","3035","3036","3037"};//通过gc_id来筛选需要显示在
-		case R.id.iv_shengxianyinpin://(休闲食品)   生鲜饮品 1
+		case R.id.iv_shengxianyinpin://(休闲食品)   生鲜饮品 1    茶具
 			it = new Intent(getActivity(), B1_GoodsListActivity.class);
-//			it.putExtra("gc_id", "1");
+			it.putExtra("gc_id", "2");
 //			it.putExtra("gc_id", "2669");
-			it.putExtra("gc_id", "3025");
 			startActivity(it);
 
 			break;
-		case R.id.iv_xiuxianlingshi:// (家庭清洁)   休闲零食2
+		case R.id.iv_xiuxianlingshi:// (家庭清洁)   休闲零食2      香道
 			it = new Intent(getActivity(), B1_GoodsListActivity.class);
-//			it.putExtra("gc_id", "308");
+			it.putExtra("gc_id", "308");
 //			it.putExtra("gc_id", "2880");
-			it.putExtra("gc_id", "3032");
 			startActivity(it);
 
 			break;
-		case R.id.iv_yanjiulipin://(个人洗护) 烟酒礼品3
+		case R.id.iv_yanjiulipin://(个人洗护) 烟酒礼品3          茶叶
 			it = new Intent(getActivity(), B1_GoodsListActivity.class);
-//			it.putExtra("gc_id", "2");
-//			it.putExtra("gc_id", "2745");
-			it.putExtra("gc_id", "3035");
+			it.putExtra("gc_id", "1");
 			startActivity(it);
 
 			break;
-		case R.id.iv_liangyoutiaowei://(生活日用)  粮油调味4
+		case R.id.iv_liangyoutiaowei://(生活日用)  粮油调味4   家居
 			it = new Intent(getActivity(), B1_GoodsListActivity.class);
-//			it.putExtra("gc_id", "470");
-//			it.putExtra("gc_id", "2940");
-			it.putExtra("gc_id", "3036");
+			it.putExtra("gc_id", "470");
 			startActivity(it);
 
 			break;
-		case R.id.iv_muyingshenghuo://(酒水饮料) 母婴生活5
+		case R.id.iv_muyingshenghuo://(酒水饮料) 母婴生活5      服饰
 			it = new Intent(getActivity(), B1_GoodsListActivity.class);
-//			it.putExtra("gc_id", "3");
-//			it.putExtra("gc_id", "2810");
-			it.putExtra("gc_id", "3037");
+			it.putExtra("gc_id", "3");
 			startActivity(it);
 
 			break;
-		case R.id.iv_gehuxihua://(家用电器) 个护洗化6
+		case R.id.iv_gehuxihua://(家用电器) 个护洗化6        软饰
 			it = new Intent(getActivity(), B1_GoodsListActivity.class);
-//			it.putExtra("gc_id", "530");
-//			it.putExtra("gc_id", "2968");
-			it.putExtra("gc_id", "3028");
+			it.putExtra("gc_id", "530");
 			startActivity(it);
 			break;
-		case R.id.iv_riyongtuza://(粮油调味) 日用土杂7
+		case R.id.iv_riyongtuza://(粮油调味) 日用土杂7    工艺
 			it = new Intent(getActivity(), B1_GoodsListActivity.class);
-//			it.putExtra("gc_id", "256");
-//			it.putExtra("gc_id", "3036");
-			it.putExtra("gc_id", "3029");
+			it.putExtra("gc_id", "256");
 			startActivity(it);
 			break;
-		case R.id.iv_jiajuwenti://(办公礼品) 家具文体8
+		case R.id.iv_jiajuwenti://(办公礼品) 家具文体8  文玩
 			it = new Intent(getActivity(), B1_GoodsListActivity.class);
-//			it.putExtra("gc_id", "593");
-//			it.putExtra("gc_id", "3005");
-			it.putExtra("gc_id", "3031");
+			it.putExtra("gc_id", "593");
 			startActivity(it);
 			break;
 		case R.id.ll_share:
@@ -341,6 +352,13 @@ public class A0_HomeFragment extends Fragment implements OnClickListener,
 			break;
 		case R.id.search_input:
 			it = new Intent(getActivity(), A2_SearchActivity.class);
+			startActivity(it);
+			break;
+		case R.id.ll_activity://活动专区跳转到活动专区
+			it = new Intent(getActivity(), F0_huodong.class);
+			it.putExtra("date", date);
+			it.putExtra("title", title);
+			it.putExtra("content", content);
 			startActivity(it);
 			break;
 		}
@@ -420,8 +438,7 @@ public class A0_HomeFragment extends Fragment implements OnClickListener,
 	JsonHttpResponseHandler res_getHomeGoods = new JsonHttpResponseHandler() {
 
 		@Override
-		public void onSuccess(int statusCode, Header[] headers,
-				JSONObject response) {
+		public void onSuccess(int statusCode, Header[] headers,JSONObject response) {
 			super.onSuccess(statusCode, headers, response);
 			Log.e("首页=", response+"");
 			int result = 0;
@@ -444,18 +461,22 @@ public class A0_HomeFragment extends Fragment implements OnClickListener,
 					{
 						Map<String, String> map = new HashMap();
 						JSONObject jsonItem = array.getJSONObject(i);
-						for (int j = 0; j < goods_id.length; j++) {
-							Log.e("jsonItem1_"+j, jsonItem.getString("gc_id")+"="+goods_id[j]);
-							if (jsonItem.getString("gc_id").equals(goods_id[j])) //如果某一条的商品信息中的gc_id等于goos_id中的某一个数
-							{
-								map.put("gc_name", jsonItem.getString("gc_name"));
-								map.put("goods",jsonItem.getString("goods"));
-								imgs[j].setTag(jsonItem.getString("gc_id"));
-								map.put("gc_id", jsonItem.getString("gc_id"));
+//						for (int j = 0; j < goods_id.length; j++) {
+//							Log.e("jsonItem1_"+j, jsonItem.getString("gc_id")+"="+goods_id[j]);
+//							if (jsonItem.getString("gc_id").equals(goods_id[j])) //如果某一条的商品信息中的gc_id等于goos_id中的某一个数
+//							{
+						if (jsonItem.getString("gc_id").equals("662")) {
+							Log.e("活动专区", "活动专区");
+						}else {
+							map.put("gc_name", jsonItem.getString("gc_name"));
+							map.put("goods",jsonItem.getString("goods"));
+							imgs[i].setTag(jsonItem.getString("gc_id"));
+							map.put("gc_id", jsonItem.getString("gc_id"));
 //								Log.e("jsonItem_"+j, jsonItem+"");
-								goods_data.add(map);
-							}
+							goods_data.add(map);
 						}
+//							}
+//						}
 					}
 					Log.e("goods_data=", goods_data+"");
 					
@@ -471,6 +492,61 @@ public class A0_HomeFragment extends Fragment implements OnClickListener,
 			loadingPDialog.dismiss();
 		}
 
+		@Override
+		public void onFailure(int statusCode, Header[] headers,
+				Throwable throwable, JSONObject errorResponse) {
+			// TODO Auto-generated method stub
+			loadingPDialog.dismiss();
+			Log.i("home-good-null——state", errorResponse + "");
+			headView.setVisibility(View.GONE);
+			listview.setBackgroundResource(R.drawable.img_net_error);
+			super.onFailure(statusCode, headers, throwable, errorResponse);
+		}
+	};
+	/**
+	 * 获取首页活动专区
+	 */
+	JsonHttpResponseHandler res_getHomeAct = new JsonHttpResponseHandler() {
+		
+		@Override
+		public void onSuccess(int statusCode, Header[] headers,JSONObject response) {
+			super.onSuccess(statusCode, headers, response);
+			int result = 0;
+			try {
+				result = Integer.valueOf(response.getString("result"));
+			} catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if (result == 1 && statusCode == 200) {
+				goods_data.clear();
+				try {
+					JSONArray array = response.getJSONArray("list");
+					for (int i = 0; i < array.length(); i++) 
+					{
+						JSONObject jsonItem = array.getJSONObject(i);
+						ImageLoader.getInstance().displayImage(LandousAppConst.act_img_head+jsonItem.getString("act_img"), iv_act);	
+						
+						date  = jsonItem.getString("act_addtime");
+						title  = jsonItem.getString("act_title");
+						content  = jsonItem.getString("act_content");
+						
+						tv_activitytitile.setText(title);
+						tv_activitycontent.setText(content);
+					}
+					headView.setVisibility(View.VISIBLE);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					listview.setBackgroundResource(R.drawable.img_data_null);
+					e.printStackTrace();
+				}
+			}
+			loadingPDialog.dismiss();
+		}
+		
 		@Override
 		public void onFailure(int statusCode, Header[] headers,
 				Throwable throwable, JSONObject errorResponse) {

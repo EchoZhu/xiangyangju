@@ -56,7 +56,8 @@ public class B0_Classify extends Fragment implements OnClickListener {
 	private LinearLayout ll_right;
 	String parent_id_middle = "";
 	String parent_id_right = "";
-    String gc_id[] =new String[]{"3025","3028","3029","3030","3031","3032","3033","3034","3035","3036","3037"};
+//    String gc_id[] =new String[]{"3025","3028","3029","3030","3031","3032","3033","3034","3035","3036","3037"};
+    String gc_id[] =new String[]{"1","2","3","256","308","470","530","593"};
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

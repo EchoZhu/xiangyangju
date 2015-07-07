@@ -36,7 +36,7 @@ public class ShareUmengMain {
 		this.activity = activity;
 		mController = UMServiceFactory.getUMSocialService("com.umeng.share");
 //		String appID = "wxd4d00764f0763ae9";
-		String appID = "wxd4d00764f0763ae9";//微信开放平台申请的appID
+		String appID = "wxafbfcd98667725b5";//微信开放平台申请的appID
 //		UMQQSsoHandler qqSsoHandler = new UMQQSsoHandler(activity,
 //				"1104090547", "ev84Wp7qogHvZj8I");//QQ互联上申请的APPID
 		UMQQSsoHandler qqSsoHandler = new UMQQSsoHandler(activity,
@@ -51,37 +51,41 @@ public class ShareUmengMain {
 		wxCircleHandler.addToSocialSDK();
 		// 设置微信好友分享内容
 		weixinContent = new WeiXinShareContent();
-		sinaContent=new SinaShareContent();
 		// 设置分享文字
 		// 设置title
 		// 设置分享内容跳转URL
-		weixinContent.setTargetUrl("http://www.landous.com");
-		sinaContent.setTargetUrl("http://www.landous.com");
+		weixinContent.setTargetUrl("http://fir.im/xiangyangju");
 		// 设置分享图片
 		weixinContent.setShareImage(new UMImage(activity, R.drawable.ic_app));
-		sinaContent.setShareImage(new UMImage(activity, R.drawable.ic_app));
 		mController.setShareMedia(weixinContent);
+		
+		sinaContent=new SinaShareContent();
+		sinaContent.setTargetUrl("http://fir.im/xiangyangju");
+		sinaContent.setShareImage(new UMImage(activity, R.drawable.ic_app));
 		mController.setShareMedia(sinaContent);
+		
 		mQQ = new QQShareContent();
-		mQQ.setTargetUrl("http://www.landous.com");
-		mQQ.setShareImage(new UMImage(activity, "http://ww4.sinaimg.cn/square/90c6c4fcjw1enydemf46rj2028028jr7.jpg"));
+		mQQ.setTargetUrl("http://fir.im/xiangyangju");
+		mQQ.setTitle("向阳居");
+		mQQ.setShareImage(new UMImage(activity, R.drawable.ic_app));
 		mController.setShareMedia(mQQ);
-		 circleMedia = new CircleShareContent();
+		circleMedia = new CircleShareContent();
 		
 		//设置朋友圈title
 		circleMedia.setTitle("向阳居");
 		circleMedia.setShareImage(new UMImage(activity, R.drawable.ic_app));
-		circleMedia.setTargetUrl("http://www.landous.com");
+		circleMedia.setTargetUrl("http://fir.im/xiangyangju");
 		mController.setShareMedia(circleMedia);
 		mController.setShareMedia(weixinContent);
-		mController.getConfig().setSsoHandler(new SinaSsoHandler());
+//		mController.getConfig().setSsoHandler(new SinaSsoHandler());
 	}
 
 	public void show() {
 		circleMedia.setShareContent(content);
 		mQQ.setShareContent(content);
 		weixinContent.setShareContent(content);
-		sinaContent.setShareContent(content+"http://www.landous.com");
+//		sinaContent.setShareContent(content+"http://fir.im/xiangyangju");
+		sinaContent.setShareContent(content+"http://fir.im/xiangyangju");
 		mController.setShareContent(content);
 		// mController.openShare(activity, false);
 		CustomShareBoard shareBoard = new CustomShareBoard(activity);

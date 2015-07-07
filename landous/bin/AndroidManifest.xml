@@ -377,6 +377,8 @@
              android:name=".activity.E1_Pay_select_page"
              android:theme="@android:style/Theme.Translucent"
              ></activity>
+         <activity android:name="com.zykj.landous.activity.G0_Tiyanguan"></activity>
+         <activity android:name="com.zykj.landous.activity.F0_huodong"></activity>
        
     </application>
 

@@ -73,7 +73,7 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Copyright © 2014 landous.com 版权所有"
+                android:text="Copyright © 2015 xxxxxxx.com 版权所有"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
                 android:layout_weight="1"

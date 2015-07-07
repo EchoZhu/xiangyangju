@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="#f5f5f5"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="45dp" >
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="20dp"
+            android:background="#000000" />
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/setting_shadow_title" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/tiyanguan"
+            android:textColor="#fff"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/iv_tyg_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="11dp"
+            android:padding="5dp"
+            android:src="@drawable/icon_back" />
+
+        <ImageView
+            android:id="@+id/iv_share"
+            android:layout_width="38dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+           	android:layout_marginTop="5dp"
+             android:layout_marginBottom="5dp"
+             android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:src="@drawable/sharebg" />
+
+    </RelativeLayout>
+    
+<!--     <com.zykj.landous.view.SlideShowView
+        android:id="@+id/slideshowView_f0"
+        android:layout_width="fill_parent"
+        android:layout_height="140dp"
+        android:layout_below="@+id/inc_title"
+        android:layout_centerHorizontal="true" /> -->
+	<RelativeLayout 
+	     android:layout_width="match_parent"
+	     android:layout_height="wrap_content">
+
+	    <ImageView 
+          android:id="@+id/iv_tiyanguan"
+          android:layout_width="fill_parent"
+          android:layout_height="140dp"
+          android:background="@drawable/tiyanguan"/>
+ 	</RelativeLayout> 
+
+ 	<RelativeLayout
+ 	    android:layout_width="match_parent"
+ 	    android:layout_height="60dp" >
+
+ 	    <TextView
+ 	        android:id="@+id/tv_title"
+ 	        android:layout_width="wrap_content"
+ 	        android:layout_height="wrap_content"
+ 	        android:layout_alignParentLeft="true"
+ 	        android:layout_centerVertical="true"
+ 	        android:layout_marginLeft="10dp"
+ 	        android:layout_toLeftOf="@+id/iv_daohang"
+ 	        android:text="向阳居生活美学课堂"
+ 	        android:maxLines="9" 
+ 	        android:singleLine="true"
+ 	        android:textSize="20sp" />
+
+ 	    <ImageView
+ 	        android:id="@+id/iv_phone"
+ 	        android:layout_width="40dp"
+ 	        android:layout_height="40dp"
+ 	        android:layout_alignParentRight="true"
+ 	        android:layout_centerVertical="true"
+ 	        android:layout_marginRight="11dp"
+ 	        android:src="@drawable/tyg_phone" />
+
+ 	    <ImageView
+ 	        android:id="@+id/iv_daohang"
+ 	        android:layout_width="50dp"
+ 	        android:layout_height="50dp"
+ 	        android:layout_centerVertical="true"
+ 	        android:layout_toLeftOf="@+id/iv_phone"
+ 	        android:src="@drawable/daohang" />
+
+ 	</RelativeLayout>
+ 	<View 
+ 	    android:layout_width="match_parent"
+ 		android:layout_height="3dp"
+ 		android:background="#DCDCDC"
+ 	    />
+<RelativeLayout 
+    android:layout_width="match_parent"
+ 	android:layout_height="wrap_content">
+
+ 	<TextView
+ 	    android:id="@+id/tv_content"
+ 	    android:layout_width="wrap_content"
+ 	    android:layout_height="wrap_content"
+ 	    android:layout_alignParentLeft="true"
+ 	    android:layout_alignParentTop="true"
+ 	    android:layout_marginLeft="10dp"
+ 	    android:text="向阳居生活美学课堂" />
+
+	</RelativeLayout>
+</LinearLayout>

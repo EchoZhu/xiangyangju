@@ -36,6 +36,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.external.activeandroid.util.Log;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.zykj.landous.Tools.HttpUtils;
 import com.zykj.landous.activity.B1_GoodsListActivity;
@@ -174,7 +175,7 @@ public class A0_IndexFragment extends Fragment implements OnClickListener
 			super.onSuccess(statusCode, headers, response);
 
 			int result = 0;
-
+			Log.e("列表=",response+"");
 			try {
 				result = Integer.valueOf(response.getString("result"));
 			} catch (NumberFormatException e) {
