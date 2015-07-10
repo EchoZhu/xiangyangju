@@ -229,9 +229,6 @@ public class E6_SigninActivity extends Activity implements OnClickListener,
 				AlertDialog.Builder builder = new Builder(
 						E6_SigninActivity.this);
 						builder.setTitle("登录成功");
-
-						
-
 						builder.setNegativeButton("确认",
 						new DialogInterface.OnClickListener() {
 
@@ -255,6 +252,7 @@ public class E6_SigninActivity extends Activity implements OnClickListener,
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				Toast.makeText(E6_SigninActivity.this, message+"", 500).show();
 				loadingPDialog.dismiss();
 				AlertDialog.Builder builder = new Builder(
 						E6_SigninActivity.this);

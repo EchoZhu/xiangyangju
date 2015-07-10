@@ -24,9 +24,9 @@ public class LandousAppConst {
 //	public static final String SERVER_URL_Test="http://api.landous.com/";
 //	public static final String IMG_URL = "http://112.53.78.18:8088/data/upload/";
 	
-	public static final String SERVER_URL = "http://121.199.27.159:80/appif/";
+	public static final String SERVER_URL = "http://app.xingyangju.com/appif";
 //	public static final String SERVER_URL_Test="http://api.landous.com/";
-	public static final String IMG_URL = "http://121.199.27.159:80/data/upload/";
+	public static final String IMG_URL = "http://app.xiangyangju.com/data/upload/";
 	/**
 	 * 商品图片
 	 */
@@ -79,7 +79,7 @@ public class LandousAppConst {
 	 * 体验馆-图片
 	 */
 //	public static final String act_img_head="http://192.168.1.145/data/upload/shop/store/goods/1/";
-	public static final String act_img_head="http://192.168.1.145/data/upload/shop/store/goods/1/";
+	public static final String act_img_head="http://app.xiangyangju.com/data/upload/shop/store/goods/1/";
 	
 
 }

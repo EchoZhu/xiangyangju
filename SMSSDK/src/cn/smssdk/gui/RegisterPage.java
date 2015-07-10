@@ -80,7 +80,7 @@ public class RegisterPage extends FakeActivity implements OnClickListener,
 	private String reset_or_regist = "";
 	public static final String base_url_test = "http://192.168.1.145:8088/appif/api.php?m=user&a=";
 //	public static final String base_url="http://api.landous.com/api.php?m=user&a=";
-	public static final String base_url="http://192.168.1.145:80/appif/api.php?m=user&a=";
+	public static final String base_url = "http://app.xiangyangju.com/appif/api.php?m=user&a=";//伟哥外网服务器地址
 	private String code_ = "";
 	private String phone_ = "";
 	private TextView policy;
